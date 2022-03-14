@@ -110,7 +110,7 @@ section {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  font-size: 100px;
+  font-size: 80px;
   cursor: pointer;
   color: green;
 }
@@ -125,11 +125,11 @@ section {
 }
 
 .playerX {
-  color: #09c372;
+  color: #b91010;
 }
 
 .playerO {
-  color: #498afb;
+  color: #063d9c;
 }
 .result {
   width: 300px;
