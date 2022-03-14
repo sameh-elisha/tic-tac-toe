@@ -85,6 +85,8 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+
   justify-content: center;
   align-items: center;
 }
@@ -93,7 +95,7 @@ section {
   margin-top: 10px;
 }
 .title {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 .row {
   display: flex;
@@ -105,6 +107,7 @@ section {
   min-width: 100px;
   min-height: 100px;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   font-size: 100px;
@@ -127,4 +130,14 @@ section {
 
 .playerO {
   color: #498afb;
+}
+.result {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+}
+.space-between {
+  display: flex;
 }
