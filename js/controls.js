@@ -1,3 +1,4 @@
+// Select Elements
 const container = document.querySelector(".container");
 const boxes = document.querySelectorAll(".tile");
 const display = document.querySelector(".display-player");
@@ -6,12 +7,15 @@ const playerXResultElement = document.querySelector(".result-x");
 const playerOResultElement = document.querySelector(".result-o");
 const drawElement = document.querySelector(".result-draw");
 
+// Game Variables
 let playerTurn = "X";
 let playerXScore = 0;
 let playerOScore = 0;
 let draw = 0;
 let playerXSelectedBoxes = {};
 let playerOSelectedBoxes = {};
+
+// All odds to win
 const winningConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -23,14 +27,16 @@ const winningConditions = [
   [2, 4, 6],
 ];
 
+// Check if there is a winner/Draw
 const checkWinners = (player, playerTurn) => {
   for (let i = 0; i < winningConditions.length; i++) {
     let elm = winningConditions[i];
+    // Check object player X/O meet the winning conditions
     if (player[elm[0]] === elm[0] && player[elm[1]] === elm[1] && player[elm[2]] === elm[2]) {
-      document.getElementById(`${elm[0]}`).style.background = "rgb(20, 77, 24)";
-      document.getElementById(`${elm[1]}`).style.background = "rgb(20, 77, 24)";
-      document.getElementById(`${elm[2]}`).style.background = "rgb(20, 77, 24)";
-      console.log(playerTurn);
+      for (let j = 0; j < 3; j++) {
+        document.getElementById(`${elm[j]}`).style.background = "rgb(20, 77, 24)";
+      }
+
       if (playerTurn === "X") {
         playerXScore++;
         playerXResultElement.innerHTML = playerXScore;
@@ -38,6 +44,7 @@ const checkWinners = (player, playerTurn) => {
         playerOScore++;
         playerOResultElement.innerHTML = playerOScore;
       }
+      // Display press
       container.onclick = null;
     }
   }
@@ -64,27 +71,21 @@ function actions(e) {
       checkWinners(playerOSelectedBoxes, playerTurn);
       playerTurn = "X";
     }
-    // Function Check any winners
     display.innerHTML = playerTurn;
     display.classList.add(`player${playerTurn}`);
   }
 }
 
 container.onclick = actions;
+
+// Reset Board
 resetBtn.addEventListener("click", () => {
   container.onclick = actions;
   boxes.forEach((elm) => {
     elm.innerHTML = "";
     elm.style.background = "#12181b";
+    elm.classList = "tile";
   });
-
-  boxes.forEach((elm) => {
-    elm.classList.remove(`player${playerTurn}`);
-    elm.classList.add("playerX");
-  });
-  display.classList.remove(`player${playerTurn}`);
-  display.classList.add("playerX");
-  playerTurn = "X";
   display.innerHTML = playerTurn;
   playerXSelectedBoxes = {};
   playerOSelectedBoxes = {};

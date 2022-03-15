@@ -8,7 +8,8 @@
 
 .background {
   background-color: #12181b;
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -50,11 +51,11 @@ section {
 }
 
 .playerX {
-  color: #b91010;
+  color: #eb0a0a;
 }
 
 .playerO {
-  color: #063d9c;
+  color: #0b5eee;
 }
 .result {
   width: 300px;
