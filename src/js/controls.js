@@ -51,9 +51,6 @@ const checkWinners = (player, playerTurn) => {
   if (Object.keys(playerOSelectedBoxes).length + Object.keys(playerXSelectedBoxes).length == 9) {
     draw++;
     drawElement.innerHTML = draw;
-    setTimeout(function () {
-      alert("Draw");
-    }, 0);
   }
 };
 
